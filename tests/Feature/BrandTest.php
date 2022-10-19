@@ -20,7 +20,7 @@ class BrandTest extends TestCase
 
         $response->assertStatus(200);
     }
-    
+
     // public function test_brand_data_create_test()
     // {
     //     $response = $this->postJson('/api/createBrand',['name' => 'BMW']);
@@ -40,5 +40,25 @@ class BrandTest extends TestCase
     //     $response = $this->deleteJson('/api/deleteBrand/4');
 
     //     $response->assertStatus(204);
+    // }
+
+    // public function test_brand_data_update_test_by_update()
+    // {
+    //     $response = $this->putJson('/api/updateBrand/2',['name' => 'Porsche']);
+
+    //     $response->assertNotFound();
+    // }
+
+    // public function test_brand_not_found_test_by_delete()
+    // {
+    //     $response = $this->deleteJson('/api/deleteBrand/2');
+
+    //     $response->assertNotFound();
+    // }
+
+    // public function test_brand_data_base_output_test(){
+    //     $response = $this->getJson('/api/showBrands');
+
+    //     $response->assertStatus(500);
     // }
 }

@@ -40,4 +40,24 @@ class CategoryTest extends TestCase
 
     //     $response->assertStatus(204);
     // }
+
+    // public function test_category_not_found_test_by_update()
+    // {
+    //     $response = $this->putJson('/api/updateCategory/3',['name' => 'engine']);
+
+    //     $response->assertNotFound();
+    // }
+
+    // public function test_category_not_found_test_by_delete()
+    // {
+    //     $response = $this->deleteJson('/api/deleteCategory/3');
+
+    //     $response->assert
+    // }
+
+    // public function test_category_data_base_output_test(){
+    //     $response = $this->getJson('/api/showCategories');
+
+    //     $response->assertStatus(500);
+    // }
 }

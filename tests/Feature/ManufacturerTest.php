@@ -40,4 +40,24 @@ class ManufacturerTest extends TestCase
 
     //     $response->assertStatus(204);
     // }
+
+    // public function test_manufacturer_not_found_test_by_update()
+    // {
+    //     $response = $this->putJson('/api/updateManufacturer/2',['name' => 'engine']);
+
+    //     $response->assertNotFound();
+    // }
+
+    // public function test_manufacturer_not_found_test_by_delete()
+    // {
+    //     $response = $this->deleteJson('/api/deleteManufacturer/2');
+
+    //     $response->assertNotFound();
+    // }
+
+    // public function test_manufacturer_data_base_output_test(){
+    //     $response = $this->getJson('/api/showManufacturers');
+
+    //     $response->assertStatus(500);
+    // }
 }

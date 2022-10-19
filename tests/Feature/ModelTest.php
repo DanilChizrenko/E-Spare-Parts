@@ -40,4 +40,24 @@ class ModelTest extends TestCase
 
     //     $response->assertStatus(204);
     // }
+
+    // public function test_model_not_found_test_by_update()
+    // {
+    //     $response = $this->putJson('/api/updateModel/2',['name' => 'limfurder','typefuel' => 'petrol','year' => '2022-01-01']);
+
+    //     $response->assertNotFound();
+    // }
+
+    // public function test_model_not_found_test_by_delete()
+    // {
+    //     $response = $this->deleteJson('/api/deleteModel/2');
+
+    //     $response->assertNotFound();
+    // }
+
+    // public function test_model_data_base_output_test(){
+    //     $response = $this->getJson('/api/showModels');
+
+    //     $response->assertStatus(500);
+    // }
 }
