@@ -11,7 +11,7 @@ class Models extends Model
     use HasFactory;
 
     public function brand(){
-        return $this->belongsTo(related:Brands::class);
+        return $this->belongsTo(related:Brands::class,'models_id');
     }
 
     public function categorys(){
