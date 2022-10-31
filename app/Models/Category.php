@@ -11,10 +11,10 @@ class Category extends Model
     use HasFactory;
 
     public function spareparts(){
-        return $this->HasMany(related:SpareParts::class);
+        return $this->HasMany(SparePart::class);
     }
 
     public function models(){
-        return $this->belongsToMany(Models::class, 'model_category', 'category_id', 'models_id');
+        return $this->belongsToMany(Model::class, 'model_category', 'category_id', 'models_id');
     }
 }

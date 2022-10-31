@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Brands;
+use App\Models\Brand;
 
 class BrandsController extends Controller
 {
     public function show(){
-        $brands = Brands::with('models');
+        $brands = Brand::with('models')->get();
         return $brands;
     }
     public function create(Request $request){
-        $brand = Brands::create(['name' => $request->name]);
+        $brand = Brand::create(['name' => $request->name]);
         return $brand;
     }
     public function update(Request $request){
         try {
-            $brand = Brands::findOrFail($request->id);
+            $brand = Brand::findOrFail($request->id);
         }
         catch(Exception $exception){
             throw new NotFoundException('Not found brand!');
@@ -27,7 +27,7 @@ class BrandsController extends Controller
     }
     public function delete($id){
         try {
-            $brand = Brands::findOrFail($id);
+            $brand = Brand::findOrFail($id);
         }
         catch(Exception $exception){
             throw new NotFoundException('Not found brands!');

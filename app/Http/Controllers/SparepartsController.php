@@ -3,31 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\SpareParts;
+use App\Models\SparePart;
 
 class SparepartsController extends Controller
 {
     public function show(){
-        $spareparts = SpareParts::get();
+        $spareparts = SparePart::with(['category','manufacturer'])->get();
         return $spareparts;
     }
     public function create(Request $request){
-        $sparepart = SpareParts::create(['name' => $request -> name]);
+        $sparepart = SparePart::create(['name' => $request -> name,
+        'category_id' => $request -> category_id,
+        'manufacturer_id' => $request -> manufacturer_id]);
         return $sparepart;
     }
     public function update(Request $request){
         try {
-            $sparepart = SpareParts::findOrFail($request->id);
+            $sparepart = SparePart::findOrFail($request->id);
         }
         catch(Exception $exception){
             throw new NotFoundException('Not found spare part!');
         }
-        $sparepart->update(['name' => $request -> name]);
+        $sparepart->update(['name' => $request -> name,
+        'category_id' => $request -> category_id,
+        'manufacturer_id' => $request -> manufacturer_id]);
         return $sparepart;
     }
     public function delete($id){
         try {
-            $sparepart = SpareParts::findOrFail($id);
+            $sparepart = SparePart::findOrFail($id);
         }
         catch(Exception $exception){
             throw new NotFoundException('Not found spare part!');
