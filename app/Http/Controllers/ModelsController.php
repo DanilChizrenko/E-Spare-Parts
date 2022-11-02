@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Model;
+use App\Models\Models;
 
 class ModelsController extends Controller
 {
     public function show(){
-        $models = Model::get();
+        $models = Models::with('brand')->get();
         return $models;
     }
     public function create(Request $request){
-        $model = Model::create(['name' => $request -> name,
+        $model = Models::create(['name' => $request -> name,
         'typefuel' => $request -> typefuel,
         'brand_id' => $request -> brand_id,
         'year' => $request -> year]);
@@ -20,7 +20,7 @@ class ModelsController extends Controller
     }
     public function update(Request $request){
         try {
-            $model = Model::findOrFail($request->id);
+            $model = Models::findOrFail($request->id);
         }
         catch(Exception $exception){
             throw new NotFoundException('Not found model!');
@@ -33,7 +33,7 @@ class ModelsController extends Controller
     }
     public function delete($id){
         try {
-            $model = Model::findOrFail($id);
+            $model = Models::findOrFail($id);
         }
         catch(Exception $exception){
             throw new NotFoundException('Not found models!');

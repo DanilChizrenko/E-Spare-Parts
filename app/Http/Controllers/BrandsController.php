@@ -8,7 +8,7 @@ use App\Models\Brand;
 class BrandsController extends Controller
 {
     public function show(){
-        $brands = Brand::with('models')->get();
+        $brands = Brand::get();
         return $brands;
     }
     public function create(Request $request){
