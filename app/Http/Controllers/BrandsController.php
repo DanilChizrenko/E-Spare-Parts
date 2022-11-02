@@ -7,8 +7,12 @@ use App\Models\Brand;
 
 class BrandsController extends Controller
 {
-    public function show(){
-        $brands = Brand::get();
+    public function show(Request $request){
+        if($request->name!=null){
+        $brands = Brand::where('name', '=', $request->name)->get();
+        }else{
+            return response()->json('NON',404);
+        }
         return $brands;
     }
     public function create(Request $request){
