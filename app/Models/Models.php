@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Models extends Model
 {
-    protected $fillable = ['id','name','typefuel','year', 'brand_id'];
+    protected $fillable = ['id','name','typefuel','year', 'brand_id','category_id'];
     use HasFactory;
 
     public function brand(){
@@ -15,6 +15,6 @@ class Models extends Model
     }
 
     public function categorys(){
-        return $this->belongsToMany(Category::class, 'model_category', 'models_id', 'category_id');
+        return $this->belongsToMany(Category::class, 'model_category', 'model_id', 'category_id');
     }
 }

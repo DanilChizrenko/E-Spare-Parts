@@ -7,12 +7,17 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    public function show(){
-        $categories = Category::get();
+    public function show(Request $request){
+        if($request->name!=null){
+            $categories = Category::with('models')->where('name', '=', $request -> name)->get();
+        }else{
+            return response()->json('Not Elements',404);
+        }
         return $categories;
     }
     public function create(Request $request){
-        $category = Category::create(['name' => $request -> name]);
+        $category = Category::create(['name' => $request -> name,
+        'model_id' => $request -> model_id]);
         return $category;
     }
     public function update(Request $request){
@@ -22,7 +27,8 @@ class CategoryController extends Controller
         catch(Exception $exception){
             throw new NotFoundException('Not found category!');
         }
-        $category->update(['name' => $request -> name]);
+        $category->update(['name' => $request -> name,
+        'model_id' => $request -> model_id]);
         return $category;
     }
     public function delete($id){

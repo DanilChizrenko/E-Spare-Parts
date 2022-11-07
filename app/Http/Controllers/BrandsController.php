@@ -9,9 +9,9 @@ class BrandsController extends Controller
 {
     public function show(Request $request){
         if($request->name!=null){
-        $brands = Brand::where('name', '=', $request->name)->get();
+        $brands = Brand::where('name', '=', $request -> name)->get();
         }else{
-            return response()->json('NON',404);
+            return response()->json('Not Elements',404);
         }
         return $brands;
     }

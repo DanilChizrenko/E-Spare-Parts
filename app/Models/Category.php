@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $fillable = ['id','name'];
+    protected $fillable = ['id','name','model_id'];
     use HasFactory;
 
     public function spareparts(){
@@ -15,6 +15,6 @@ class Category extends Model
     }
 
     public function models(){
-        return $this->belongsToMany(Model::class, 'model_category', 'category_id', 'models_id');
+        return $this->belongsToMany(Model::class, 'model_category', 'category_id', 'model_id');
     }
 }

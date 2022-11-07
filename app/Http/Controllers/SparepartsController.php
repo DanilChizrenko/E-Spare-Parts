@@ -7,8 +7,8 @@ use App\Models\SparePart;
 
 class SparepartsController extends Controller
 {
-    public function show(){
-        $spareparts = SparePart::with(['category','manufacturer'])->get();
+    public function show(Request $request){
+        $spareparts = SparePart::with(['category','manufacturer'])->where('manufacturer_id', '=', $request -> manufacturer_id)->get();
         return $spareparts;
     }
     public function create(Request $request){

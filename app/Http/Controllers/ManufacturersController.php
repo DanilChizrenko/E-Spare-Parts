@@ -7,8 +7,8 @@ use App\Models\Manufacturer;
 
 class ManufacturersController extends Controller
 {
-    public function show(){
-        $manufacturers = Manufacturer::get();
+    public function show(Request $request){
+        $manufacturers = Manufacturer::where('name', '=', $request -> name)->get();
         return $manufacturers;
     }
     public function create(Request $request){

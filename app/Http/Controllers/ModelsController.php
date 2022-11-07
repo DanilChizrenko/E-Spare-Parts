@@ -7,15 +7,20 @@ use App\Models\Models;
 
 class ModelsController extends Controller
 {
-    public function show(){
-        $models = Models::with('brand')->get();
+    public function show(Request $request){
+        if($request->brand_id!=null){
+            $models = Models::with('brand')->where('brand_id', '=', $request->brand_id)->get();
+        }else{
+            return response()->json('Not Elements',404);
+        }
         return $models;
     }
     public function create(Request $request){
         $model = Models::create(['name' => $request -> name,
         'typefuel' => $request -> typefuel,
         'brand_id' => $request -> brand_id,
-        'year' => $request -> year]);
+        'year' => $request -> year,
+        'category_id' => $request -> category_id]);
         return $model;
     }
     public function update(Request $request){
@@ -28,7 +33,8 @@ class ModelsController extends Controller
         $model->update(['name' => $request -> name,
         'typefuel' => $request -> typefuel,
         'brand_id' => $request -> brand_id,
-        'year' => $request -> year]);
+        'year' => $request -> year,
+        'category_id' => $request -> category_id]);
         return $model;
     }
     public function delete($id){
