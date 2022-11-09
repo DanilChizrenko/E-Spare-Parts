@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Models;
 
 class CategoryController extends Controller
 {
@@ -22,7 +23,7 @@ class CategoryController extends Controller
     }
     public function update(Request $request){
         try {
-            $category = Category::findOrFail($request->id);
+            $category = Category::findOrFail([$request->id]);
         }
         catch(Exception $exception){
             throw new NotFoundException('Not found category!');

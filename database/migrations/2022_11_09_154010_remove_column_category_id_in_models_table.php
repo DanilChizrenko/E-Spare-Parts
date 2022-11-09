@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function($table) {
-            $table->integer('model_id')->nullable();
+        Schema::table('models', function($table) {
+            $table->dropColumn('category_id');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function($table) {
-            $table->dropColumn('model_id');
+        Schema::table('models', function($table) {
+            $table->integer('category_id');
         });
     }
 };

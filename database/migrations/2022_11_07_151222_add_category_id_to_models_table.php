@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('models', function($table) {
-            $table->integer('category_id');
+            $table->integer('category_id')->nullable();
         });
     }
 
