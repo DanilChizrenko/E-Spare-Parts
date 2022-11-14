@@ -20,8 +20,7 @@ class ModelsController extends Controller
         $model = Models::create(['name' => $request -> name,
         'typefuel' => $request -> typefuel,
         'brand_id' => $request -> brand_id,
-        'year' => $request -> year,
-        'category_id' => $request -> category_id]);
+        'year' => $request -> year]);
         return $model;
     }
     public function update(Request $request){
@@ -34,8 +33,7 @@ class ModelsController extends Controller
         $model->update(['name' => $request -> name,
         'typefuel' => $request -> typefuel,
         'brand_id' => $request -> brand_id,
-        'year' => $request -> year,
-        'category_id' => $request -> category_id]);
+        'year' => $request -> year]);
         return $model;
     }
     public function delete($id){

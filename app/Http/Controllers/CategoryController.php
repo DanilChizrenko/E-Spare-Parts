@@ -17,10 +17,17 @@ class CategoryController extends Controller
         return $categories;
     }
     public function create(Request $request){
-        $category = Category::create(['name' => $request -> name,
-        'model_id' => $request -> model_id]);
+        $category = Category::create(['name' => $request -> name]);
         return $category;
     }
+
+    public function createCompound(Request $request){
+        $model = Models::find([1,2,3,4,5,6,7,8]);
+        $category = Category::with('models')->find($request->id);
+        $category->models()->attach($model);
+        return 'Success';
+    }
+
     public function update(Request $request){
         try {
             $category = Category::findOrFail([$request->id]);
@@ -28,8 +35,7 @@ class CategoryController extends Controller
         catch(Exception $exception){
             throw new NotFoundException('Not found category!');
         }
-        $category->update(['name' => $request -> name,
-        'model_id' => $request -> model_id]);
+        $category->update(['name' => $request -> name]);
         return $category;
     }
     public function delete($id){

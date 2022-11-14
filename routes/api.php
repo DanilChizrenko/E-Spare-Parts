@@ -19,6 +19,7 @@ Route::put('updateModel/{id}',[ModelsController::class,'update']);
 Route::delete('deleteModel/{id}',[ModelsController::class, 'delete']);
 
 Route::get('showCategories',[CategoryController::class, 'show']);
+Route::post('createCompoundCategories/{id}',[CategoryController::class, 'createCompound']);
 Route::post('createCategory',[CategoryController::class, 'create']);
 Route::put('updateCategory/{id}',[CategoryController::class,'update']);
 Route::delete('deleteCategory/{id}',[CategoryController::class, 'delete']);
