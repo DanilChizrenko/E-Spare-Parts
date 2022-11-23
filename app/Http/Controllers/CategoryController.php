@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Models;
+use App\Models\ModelCategory;
 
 class CategoryController extends Controller
 {
@@ -22,10 +23,8 @@ class CategoryController extends Controller
     }
 
     public function createCompound(Request $request){
-        $model = Models::find([1,2,3,4,5,6,7,8]);
-        $category = Category::with('models')->find($request->id);
-        $category->models()->attach($model);
-        return 'Success';
+        $model_category = ModelCategory::create(['category_id'=> $request -> category_id,'model_id'=> $request -> model_id]);
+        return $model_category;
     }
 
     public function update(Request $request){
