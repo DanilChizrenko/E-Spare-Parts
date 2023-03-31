@@ -2,7 +2,7 @@
 
 My project is an auto parts aggregator. It will allow you to quickly and easily find the part you need at a low price.
 
-Made with[Laravel](https://laravel.com/).
+Made with [Laravel](https://laravel.com/).
 
 ## Methods Show
 
